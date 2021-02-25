@@ -1,0 +1,22 @@
+<script>
+ function clearCookie (name) {
+    document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:00 GMT'
+  }
+
+  function setCookie (name, value) {
+    document.cookie = name + '=' + value;
+  }
+
+  function getSource () {
+    const queryParams = new URLSearchParams(window.location.search)
+    return queryParams.get('advref')
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    var source = getSource();
+
+    if (source) {
+      setCookie('advref', source);
+    }
+  });
+</script>
